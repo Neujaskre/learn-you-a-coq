@@ -107,15 +107,11 @@ Proof.
   case: a => //.
 Qed. 
 
-Lemma subn_sqr m n : m ^ 2 - n ^ 2 = (m - n) * (m + n).
-Proof.
-  rewrite -!mulnn.
-Admitted.
-
 Lemma z_muln m : 0 * m = 0.
-Proof. 
-  by [].
-Qed.  
+Proof. by []. Qed.
+
+Lemma expn_zero_zero : 0 ^ 0 = 1.
+Proof. by []. Qed.
 
 Lemma expn_zero m : (0 ^ m == 0) || (0 ^ m == 1).
 Proof.
@@ -123,17 +119,7 @@ Proof.
   rewrite !expnS !z_muln //.
 Qed.
 
-Lemma expn_zero2 m n : 0 ^ m == n = (n == 0) || (n == 1).
+Lemma expn_zero_S_n n : 0 ^ n.+1 = 0.
 Proof.
-  elim: m => [|m0 IHm].
-  simpl.
-
-
-              
-  elim: n => [|n0 IHn].
-  - simpl.
-  
-Lemma odd_exp m n : odd (m ^ n) = (n == 0) || odd m.
-Proof.
-  elim: m => [|m' IHm].
-  Search "ex
+  case: n => //.
+Qed.
